@@ -15,7 +15,13 @@ namespace CarFactory
         public Form1()
         {
             InitializeComponent();
+            polacz();
+        }
 
+        private void polacz()
+        {
+            throw new NotImplementedException();
+            MessageBox.Show("");
         }
     }
 }
