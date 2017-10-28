@@ -15,13 +15,27 @@ namespace CarFactory
         public Form1()
         {
             InitializeComponent();
-            polacz();
         }
 
-        private void polacz()
+        private void btJedz_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-            MessageBox.Show("");
+            groupBox1.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            samochod sam = new samochod();
+            silnik silnik = new silnik();
+            silnik.dystans = int.Parse(tbDystans.Text);
+            silnik.pojemnosc = int.Parse(tbSilnik.Text);
+            sam.dystans = int.Parse(tbDystans.Text);
+            for (int i = 0; i < int.Parse(tbDystans.Text); i++)
+            {
+                lbDroga.Items.Add(sam.jedz());
+                
+            }
+            
+            //sam.jedz(int.Parse(tbDystans.Text));
         }
     }
 }
