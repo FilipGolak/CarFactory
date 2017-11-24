@@ -29,6 +29,10 @@ namespace CarFactory
         {
             if (btJedz.Text == "Start")
             {
+                tbSilnik.Enabled = false;
+                tbMarka.Enabled = false;
+                tbModel.Enabled = false;
+
                 samochod.Marka = tbMarka.Text;
                 samochod.Model = tbModel.Text;
                 silnik.pojemnosc_silnika = int.Parse(tbSilnik.Text);
@@ -38,25 +42,31 @@ namespace CarFactory
                 lbDroga.Items.Add("Zaczynamy: " + samochod.pobierz_dane());
                 lbDroga.Items.Add("Maksymalny zasięg: " + Math.Round(samochod.sprawdz_dystans(), 0) + "km");
                 btJedz.Text = "Stop";
+                tbZasieg.Text = Math.Round(samochod.sprawdz_dystans()).ToString();
             }
             else
             {
                 btJedz.Text = "Start";
                 lbDroga.Items.Add("Koniec Jazdy");
                 groupBox1.Visible = false;
+                tbSilnik.Enabled = true;
+                tbMarka.Enabled = true;
+                tbModel.Enabled = true;
             }
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            samochod.jedz(lbDroga, int.Parse(tbDystans.Text));
+            samochod.jedz(lbDroga,tbIle_wBaku, int.Parse(tbDystans.Text));
+            tbZasieg.Text = Math.Round(samochod.sprawdz_dystans()).ToString();
             tbDystans.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             samochod.zatankuj(lbDroga, tbIle_wBaku, int.Parse(tbTankuj.Text));
+            tbZasieg.Text = Math.Round(samochod.sprawdz_dystans()).ToString();
             tbTankuj.Text = "";
         }
     }

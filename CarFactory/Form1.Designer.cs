@@ -39,14 +39,16 @@
             this.lbDroga = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbIle_wBaku = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbTankuj = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbIle_wBaku = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbModel = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbZasieg = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +95,7 @@
             // 
             // tbBak
             // 
+            this.tbBak.Enabled = false;
             this.tbBak.Location = new System.Drawing.Point(74, 136);
             this.tbBak.Name = "tbBak";
             this.tbBak.Size = new System.Drawing.Size(47, 22);
@@ -119,9 +122,9 @@
             // 
             this.lbDroga.FormattingEnabled = true;
             this.lbDroga.ItemHeight = 16;
-            this.lbDroga.Location = new System.Drawing.Point(275, 35);
+            this.lbDroga.Location = new System.Drawing.Point(275, 83);
             this.lbDroga.Name = "lbDroga";
-            this.lbDroga.Size = new System.Drawing.Size(212, 276);
+            this.lbDroga.Size = new System.Drawing.Size(212, 228);
             this.lbDroga.TabIndex = 8;
             // 
             // button1
@@ -149,31 +152,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
             // 
-            // tbIle_wBaku
-            // 
-            this.tbIle_wBaku.Location = new System.Drawing.Point(11, 136);
-            this.tbIle_wBaku.Name = "tbIle_wBaku";
-            this.tbIle_wBaku.Size = new System.Drawing.Size(47, 22);
-            this.tbIle_wBaku.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(12, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "/";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "km";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -200,6 +178,32 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(194, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "km";
+            // 
+            // tbIle_wBaku
+            // 
+            this.tbIle_wBaku.Enabled = false;
+            this.tbIle_wBaku.Location = new System.Drawing.Point(11, 136);
+            this.tbIle_wBaku.Name = "tbIle_wBaku";
+            this.tbIle_wBaku.Size = new System.Drawing.Size(47, 22);
+            this.tbIle_wBaku.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(59, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(12, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "/";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -216,11 +220,29 @@
             this.tbModel.Size = new System.Drawing.Size(100, 22);
             this.tbModel.TabIndex = 13;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(272, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 17);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Zasięg:";
+            // 
+            // tbZasieg
+            // 
+            this.tbZasieg.Location = new System.Drawing.Point(333, 45);
+            this.tbZasieg.Name = "tbZasieg";
+            this.tbZasieg.Size = new System.Drawing.Size(154, 22);
+            this.tbZasieg.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 329);
+            this.Controls.Add(this.tbZasieg);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbModel);
             this.Controls.Add(this.label4);
@@ -264,6 +286,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbModel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbZasieg;
     }
 }
 
