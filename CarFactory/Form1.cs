@@ -12,30 +12,52 @@ namespace CarFactory
 {
     public partial class Form1 : Form
     {
+        public string asd = "";
         public Form1()
         {
+            //zasieg na górze dynamiczny
+            //Muszą ubywąc litry po trasie
             InitializeComponent();
+            tbMarka.Text = "Ford";
+            tbModel.Text = "Focus";
+            tbSilnik.Text = "1800";
+            tbBak.Text = "55";
+            tbIle_wBaku.Text = "15";
         }
 
         private void btJedz_Click(object sender, EventArgs e)
         {
-            groupBox1.Visible = true;
+            if (btJedz.Text == "Start")
+            {
+                samochod.Marka = tbMarka.Text;
+                samochod.Model = tbModel.Text;
+                silnik.pojemnosc_silnika = int.Parse(tbSilnik.Text);
+                silnik.pojemnosc_baku = int.Parse(tbBak.Text);
+                samochod.poziom_paliwa = int.Parse(tbIle_wBaku.Text);
+                groupBox1.Visible = true;
+                lbDroga.Items.Add("Zaczynamy: " + samochod.pobierz_dane());
+                lbDroga.Items.Add("Maksymalny zasięg: " + Math.Round(samochod.sprawdz_dystans(), 0) + "km");
+                btJedz.Text = "Stop";
+            }
+            else
+            {
+                btJedz.Text = "Start";
+                lbDroga.Items.Add("Koniec Jazdy");
+                groupBox1.Visible = false;
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            samochod sam = new samochod();
-            silnik silnik = new silnik();
-            silnik.dystans = int.Parse(tbDystans.Text);
-            silnik.pojemnosc = int.Parse(tbSilnik.Text);
-            sam.dystans = int.Parse(tbDystans.Text);
-            for (int i = 0; i < int.Parse(tbDystans.Text); i++)
-            {
-                lbDroga.Items.Add(sam.jedz());
-                
-            }
-            
-            //sam.jedz(int.Parse(tbDystans.Text));
+            samochod.jedz(lbDroga, int.Parse(tbDystans.Text));
+            tbDystans.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            samochod.zatankuj(lbDroga, tbIle_wBaku, int.Parse(tbTankuj.Text));
+            tbTankuj.Text = "";
         }
     }
 }

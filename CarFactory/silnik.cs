@@ -9,22 +9,13 @@ namespace CarFactory
 {
     class silnik
     {
-        private int spalanie = 0;
-        public int ilość_paliwa = 0;
-        public int pojemnosc = 0 ;
-        public int dystans;
-        public int obliczspalanie()
+        public static int pojemnosc_silnika;
+        public static int pojemnosc_baku;
+        public static double obliczspalanie()
         {
-            spalanie = 8;// pojemnosc / 200;
-            return spalanie;
-        }
 
-        public int sprawdzdystans()
-        {
-            dystans = (ilość_paliwa * 100) / obliczspalanie();
-            return dystans;
-            
-        }
-        
+            double spalanie = pojemnosc_silnika / 200;
+            return spalanie;
+        }        
     }
 }

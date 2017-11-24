@@ -9,21 +9,52 @@ namespace CarFactory
 {
     class samochod
     {
-        public int dystans;
-        public int pojemnosc_baku;
-        public int jedz()
+        public static string Model;
+        public static string Marka;
+        public static double poziom_paliwa;
+        public static  void jedz(ListBox lbDroga, int dystans)
         {
-            silnik silnik = new silnik();
-            silnik.obliczspalanie();
-            if (silnik.sprawdzdystans() < dystans)
+            for (int i = 1; i < dystans; i++)
             {
-                MessageBox.Show("Nie dojedziesz do celu bez tankowania");
+                if (poziom_paliwa < 1)
+                {
+                    lbDroga.Items.Add("Przejechałeś " + i + " km");
+                    lbDroga.Items.Add("Zbiornik pusty, nigdzie nie jadę!");
+                    return;
+                }
+                else
+                {
+                    poziom_paliwa = poziom_paliwa - (1 * silnik.obliczspalanie() / 100);
+                }
             }
-            silnik.sprawdzdystans();
-            return dystans--;
+            lbDroga.Items.Add("Przejechałeś " + dystans + " km");
+            lbDroga.Items.Add("Dojechałeś do celu");
+        }
 
+        public static void zatankuj(ListBox lbDroga,TextBox tbIle_wBaku, int ilosc_paliwa)
+        {
+            if (ilosc_paliwa + poziom_paliwa >= silnik.pojemnosc_baku)
+            {
+                poziom_paliwa = silnik.pojemnosc_baku;
+                lbDroga.Items.Add("Zatankowano " + (silnik.pojemnosc_baku - ilosc_paliwa).ToString() + " litrów");
+                tbIle_wBaku.Text = silnik.pojemnosc_baku.ToString();
+            }
+            else
+            {
+                poziom_paliwa += ilosc_paliwa;
+                lbDroga.Items.Add("Zatankowano " + ilosc_paliwa + " litrów");
+                tbIle_wBaku.Text = poziom_paliwa.ToString();
+            }
+        }
+
+        public static string pobierz_dane()
+        {
+            return Marka + " " + Model;
+        }
+
+        public static double sprawdz_dystans()
+        {
+            return poziom_paliwa * 100 / silnik.obliczspalanie(); ;
         }
     }
-
-
 }
